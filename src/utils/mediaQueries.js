@@ -1,12 +1,12 @@
 const sizes = {
-  breakSmall: `35.5em`,
-  breakMedium: `48em`,
-  breakLarge: `64em`,
-  breakExtraLarge: `80em`,
-  breakLargest: `90em`,
+  breakSmall: `35.5rem`,
+  breakMedium: `48rem`,
+  breakLarge: `64rem`,
+  breakExtraLarge: `80rem`,
+  breakLargest: `90rem`,
 }
 
-export const queries = {
+export const mediaQueries = {
   small: `only screen and (min-width: ${sizes.breakSmall})`,
   medium: `only screen and (min-width: ${sizes.breakMedium})`,
   large: `only screen and (min-width: ${sizes.breakLarge})`,

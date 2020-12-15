@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { createGlobalStyle } from 'styled-components'
+import Footer from '../common/Footer'
 
 /**
  * Global styles
@@ -30,6 +31,10 @@ const GlobalStyle = createGlobalStyle`
       --color-border: #2a2a2a;
     }
   }
+
+  body {
+    background-color: var(--color-background);
+  }
 `
 
 /**
@@ -52,10 +57,12 @@ const DefaultLayout = ({ data, children, bodyClass }) => {
 
       <GlobalStyle />
 
-      <div className="layout">
+      <div>
         {/* All the main content gets inserted here, index.js, post.js */}
         {children}
       </div>
+
+      <Footer />
     </>
   )
 }
