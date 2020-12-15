@@ -1,6 +1,6 @@
-import React from "react"
-import { withPrefix } from "gatsby"
-import { defaultIcons } from "./common.js"
+import React from 'react'
+import { withPrefix } from 'gatsby'
+import { defaultIcons } from './common.js'
 
 exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
   // We use this to build a final array to pass as the argument to setHeadComponents at the end of onRenderBody.

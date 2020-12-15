@@ -7,8 +7,7 @@ module.exports = {
       experimentalObjectRestSpread: true,
     },
   },
-  plugins: [`ghost`, `react`,
-  ],
+  plugins: [`ghost`, `react`],
   extends: [
     `plugin:ghost/node`,
     `plugin:ghost/ember`,
@@ -21,44 +20,28 @@ module.exports = {
       version: `16.0`,
       flowVersion: `0.53`,
     },
-    propWrapperFunctions: [
-      `forbidExtraProps`,
-    ],
+    propWrapperFunctions: [`forbidExtraProps`],
   },
   rules: {
-    "ghost/sort-imports-es6-autofix/sort-imports-es6": `off`,
-    "ghost/ember/use-ember-get-and-set": `off`,
-    "no-console": `off`,
-    "no-inner-declarations": `off`,
-    "valid-jsdoc": `off`,
-    "require-jsdoc": `off`,
-    quotes: [
-      `error`,
-      `backtick`,
-    ],
-    "consistent-return": [
-      `error`,
-    ],
-    "arrow-body-style": [
+    'ghost/sort-imports-es6-autofix/sort-imports-es6': `off`,
+    'ghost/ember/use-ember-get-and-set': `off`,
+    'no-console': `off`,
+    'no-inner-declarations': `off`,
+    'valid-jsdoc': `off`,
+    'require-jsdoc': `off`,
+    quotes: [`error`, `backtick`],
+    'consistent-return': [`error`],
+    'arrow-body-style': [
       `error`,
       `as-needed`,
       {
         requireReturnForObjectLiteral: true,
       },
     ],
-    "jsx-quotes": [
-      `error`,
-      `prefer-double`,
-    ],
-    semi: [
-      `error`,
-      `never`,
-    ],
-    "object-curly-spacing": [
-      `error`,
-      `always`,
-    ],
-    "comma-dangle": [
+    'jsx-quotes': [`error`, `prefer-double`],
+    semi: [`error`, `never`],
+    'object-curly-spacing': [`error`, `always`],
+    'comma-dangle': [
       `error`,
       {
         arrays: `always-multiline`,
@@ -68,12 +51,10 @@ module.exports = {
         functions: `ignore`,
       },
     ],
-    "react/prop-types": [
+    'react/prop-types': [
       `error`,
       {
-        ignore: [
-          `children`,
-        ],
+        ignore: [`children`],
       },
     ],
     indent: [`error`, 2],

@@ -14,7 +14,7 @@ function generateIcons(icons, srcIcon) {
     return sharp(srcIcon)
       .resize(size)
       .toFile(imgPath)
-      .then(() => { })
+      .then(() => {})
   })
 }
 
