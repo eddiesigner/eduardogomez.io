@@ -20,7 +20,7 @@ const Index = ({ data, location }) => {
   return (
     <>
       <MetaData location={location} />
-      <Layout isHome={true}>
+      <Layout location={location} isHome={true}>
         <div></div>
       </Layout>
     </>

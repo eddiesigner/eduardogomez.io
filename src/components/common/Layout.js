@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { createGlobalStyle } from 'styled-components'
+import Header from '../common/Header'
 import Footer from '../common/Footer'
 
 /**
@@ -21,6 +22,9 @@ const GlobalStyle = createGlobalStyle`
     --color-text: #505050;
     --color-accent: #2188ff;
     --color-border: #efefef;
+    --color-focus: #90cdf4;
+    --color-nav-gradient-left: rgba(255, 255, 255, 1);
+    --color-nav-gradient-right: rgba(255, 255, 255, 0);
 
     @media (prefers-color-scheme: dark) {
       --color-foreground: #ffffff;
@@ -29,6 +33,9 @@ const GlobalStyle = createGlobalStyle`
       --color-text: #d6d6d6;
       --color-accent: #2188ff;
       --color-border: #2a2a2a;
+      --color-focus: #90cdf4;
+      --color-nav-gradient-left: rgba(31, 31, 31, 1);
+      --color-nav-gradient-right: rgba(31, 31, 31, 0);
     }
   }
 
@@ -45,8 +52,9 @@ const GlobalStyle = createGlobalStyle`
  * styles, and meta data for each page.
  *
  */
-const DefaultLayout = ({ data, children, bodyClass }) => {
+const DefaultLayout = ({ data, children, bodyClass, location }) => {
   const site = data.allGhostSettings.edges[0].node
+
   return (
     <>
       <Helmet>
@@ -57,12 +65,19 @@ const DefaultLayout = ({ data, children, bodyClass }) => {
 
       <GlobalStyle />
 
-      <div>
+      <Header
+        location={location}
+        navigation={site.navigation}
+        logo={site.logo}
+        title={site.title}
+      />
+
+      <main>
         {/* All the main content gets inserted here, index.js, post.js */}
         {children}
-      </div>
+      </main>
 
-      <Footer />
+      <Footer secondaryNavigation={site.secondary_navigation} />
     </>
   )
 }
@@ -70,9 +85,11 @@ const DefaultLayout = ({ data, children, bodyClass }) => {
 DefaultLayout.propTypes = {
   children: PropTypes.node.isRequired,
   bodyClass: PropTypes.string,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
   isHome: PropTypes.bool,
   data: PropTypes.shape({
-    file: PropTypes.object,
     allGhostSettings: PropTypes.object.isRequired,
   }).isRequired,
 }

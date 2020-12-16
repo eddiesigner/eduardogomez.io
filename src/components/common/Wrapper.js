@@ -9,7 +9,12 @@ const Container = styled.div`
   margin: 0 auto;
 
   @media ${mediaQueries.medium} {
+    padding: 0 2.5rem;
     max-width: 72.5rem;
+  }
+
+  @media ${mediaQueries.extraLarge} {
+    padding: 0;
   }
 `
 

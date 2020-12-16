@@ -1,25 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Wrapper from '../common/Wrapper'
 import { mediaQueries } from '../../utils/mediaQueries'
 
-const Footer = () => (
+const Footer = ({ secondaryNavigation }) => (
   <Container>
     <Wrapper>
       <Content>
-        <NavigationList>
-          <NavItem>
-            <NavLink href="https://github.com/eddiesigner">Github</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="https://twitter.com/eddiesigner">Twitter</NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink href="https://www.linkedin.com/in/eddiesigner">
-              Linkedin
-            </NavLink>
-          </NavItem>
-        </NavigationList>
+        <nav aria-label="Footer navigation">
+          <NavigationList>
+            {secondaryNavigation.map((navItem, i) => (
+              <NavItem key={i}>
+                <NavLink href={navItem.url} key={i}>
+                  {navItem.label}
+                </NavLink>
+              </NavItem>
+            ))}
+          </NavigationList>
+        </nav>
         <SourceCodeLink href="https://github.com/eddiesigner/eduardogomez.io">
           Source code of this website
         </SourceCodeLink>
@@ -92,5 +91,14 @@ const SourceCodeLink = styled.a`
     font-size: 0.9375rem;
   }
 `
+
+Footer.propTypes = {
+  secondaryNavigation: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
+}
 
 export default Footer
