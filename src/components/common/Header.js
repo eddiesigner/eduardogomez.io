@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Wrapper from '../common/Wrapper'
+import { Wrapper } from '.'
 import { mediaQueries } from '../../utils/mediaQueries'
 
 const Header = ({ location, navigation, logo, title }) => (

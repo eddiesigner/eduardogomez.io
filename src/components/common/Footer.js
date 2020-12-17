@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Wrapper from '../common/Wrapper'
+import { Wrapper } from '.'
 import { mediaQueries } from '../../utils/mediaQueries'
 
 const Footer = ({ secondaryNavigation }) => (
@@ -29,6 +29,7 @@ const Footer = ({ secondaryNavigation }) => (
 
 const Container = styled.footer`
   padding: 2.1875rem 0;
+  border-top: 0.0625rem solid var(--color-border);
 
   @media ${mediaQueries.medium} {
     padding: 1.5625rem 0;

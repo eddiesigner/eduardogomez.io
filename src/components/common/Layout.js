@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { createGlobalStyle } from 'styled-components'
-import Header from '../common/Header'
-import Footer from '../common/Footer'
+import { Header } from '.'
+import { Footer } from '.'
 
 /**
  * Global styles
