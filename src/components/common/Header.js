@@ -119,6 +119,7 @@ const NavigationWrapper = styled.div`
 
   @media ${mediaQueries.medium} {
     margin-right: 0;
+    overflow-y: visible;
   }
 `
 
@@ -128,6 +129,12 @@ const MainNavigation = styled.nav`
   margin-bottom: -2.5rem;
   overflow-x: auto;
   overflow-y: hidden;
+
+  @media ${mediaQueries.medium} {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    overflow: visible;
+  }
 `
 
 const NavigationList = styled.ul`

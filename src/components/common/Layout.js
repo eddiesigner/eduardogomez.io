@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     --color-accent: #2188ff;
     --color-border: #efefef;
     --color-focus: #90cdf4;
+    --color-button-shadow: rgba(0, 0, 0, 0.2);
     --color-nav-gradient-left: rgba(255, 255, 255, 1);
     --color-nav-gradient-right: rgba(255, 255, 255, 0);
 
@@ -34,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
       --color-accent: #2188ff;
       --color-border: #2a2a2a;
       --color-focus: #90cdf4;
+      --color-button-shadow: rgba(0, 0, 0, 0.6);
       --color-nav-gradient-left: rgba(31, 31, 31, 1);
       --color-nav-gradient-right: rgba(31, 31, 31, 0);
     }
