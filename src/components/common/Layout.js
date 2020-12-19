@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     --color-accent: #2188ff;
     --color-border: #efefef;
     --color-focus: #90cdf4;
+    --color-second-gradient: #804eda;
     --color-button-shadow: rgba(0, 0, 0, 0.2);
     --color-nav-gradient-left: rgba(255, 255, 255, 1);
     --color-nav-gradient-right: rgba(255, 255, 255, 0);
@@ -35,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
       --color-accent: #2188ff;
       --color-border: #2a2a2a;
       --color-focus: #90cdf4;
+      --color-second-gradient: #804eda;
       --color-button-shadow: rgba(0, 0, 0, 0.6);
       --color-nav-gradient-left: rgba(31, 31, 31, 1);
       --color-nav-gradient-right: rgba(31, 31, 31, 0);
@@ -54,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
  * styles, and meta data for each page.
  *
  */
-const DefaultLayout = ({ data, children, bodyClass, location }) => {
+const DefaultLayout = ({ data, children, location }) => {
   const site = data.allGhostSettings.edges[0].node
 
   return (
@@ -62,7 +64,7 @@ const DefaultLayout = ({ data, children, bodyClass, location }) => {
       <Helmet>
         <html lang={site.lang} />
         <style type="text/css">{`${site.codeinjection_styles}`}</style>
-        <body className={bodyClass} />
+        <body />
       </Helmet>
 
       <GlobalStyle />
@@ -86,7 +88,6 @@ const DefaultLayout = ({ data, children, bodyClass, location }) => {
 
 DefaultLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  bodyClass: PropTypes.string,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,

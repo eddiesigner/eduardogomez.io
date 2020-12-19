@@ -10,6 +10,8 @@ import { Wrapper } from '../components/common'
 import { Button } from '../components/common'
 import { Heading } from '../components/common'
 import { Subheading } from '../components/common'
+import { BigText } from '../components/home'
+import { Label } from '../components/home'
 
 /**
  * Main index page (home page)
@@ -21,12 +23,26 @@ import { Subheading } from '../components/common'
  */
 const Index = ({ data, location }) => {
   const posts = data.allGhostPost.edges
+  const settings = data.allGhostSettings.edges[0].node
   console.log(posts)
 
   return (
     <>
       <MetaData location={location} />
       <Layout location={location} isHome={true}>
+        <Wrapper>
+          <Masthead>
+            <Title>
+              <BigText gradient>{settings.title}</BigText>
+              <BigText>Frontend Engineer.</BigText>
+              <BigText>Designer.</BigText>
+            </Title>
+            <Subheading bigger>{settings.description}</Subheading>
+          </Masthead>
+          <Work>
+            <Label>Featured work</Label>
+          </Work>
+        </Wrapper>
         <Contact>
           <Wrapper smaller>
             <Heading type="h2" centered bigger>
@@ -45,6 +61,31 @@ const Index = ({ data, location }) => {
     </>
   )
 }
+
+const Masthead = styled.section`
+  margin-bottom: 6.25rem;
+
+  @media ${mediaQueries.medium} {
+    max-width: 41.875rem;
+    margin-bottom: 9.375rem;
+  }
+`
+
+const Title = styled.h1`
+  margin: 0 0 2.5rem;
+
+  @media ${mediaQueries.medium} {
+    margin-bottom: 3.125rem;
+  }
+`
+
+const Work = styled.section`
+  margin-bottom: 6.25rem;
+
+  @media ${mediaQueries.medium} {
+    margin-bottom: 9.375rem;
+  }
+`
 
 const Contact = styled.section`
   padding: 4.6875rem 0;
@@ -68,6 +109,7 @@ const ButtonContainer = styled.div`
 Index.propTypes = {
   data: PropTypes.shape({
     allGhostPost: PropTypes.object.isRequired,
+    allGhostSettings: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
@@ -80,7 +122,7 @@ export default Index
 // This page query loads all posts sorted descending by published date
 // The `limit` and `skip` values are used for pagination
 export const pageQuery = graphql`
-  query GhostPostQuery($limit: Int!, $skip: Int!) {
+  query GhostIndexQuery($limit: Int!, $skip: Int!) {
     allGhostPost(
       sort: { order: DESC, fields: [published_at] }
       limit: $limit
@@ -89,6 +131,14 @@ export const pageQuery = graphql`
       edges {
         node {
           ...GhostPostFields
+        }
+      }
+    }
+    allGhostSettings {
+      edges {
+        node {
+          title
+          description
         }
       }
     }
