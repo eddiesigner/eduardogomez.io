@@ -35,6 +35,27 @@
     url('../fonts/inter/inter-v2-latin-600.woff') format('woff');
 }
 
+/* Lazy Load
+ * ========================================================================== */
+
+img.lazy {
+  opacity: 0;
+}
+
+img:not(.initial) {
+  transition: opacity 1s;
+}
+
+img.initial,
+img.loaded,
+img.error {
+  opacity: 1 !important;
+}
+
+img:not([src]) {
+  visibility: hidden;
+}
+
 /* Document
  * ========================================================================== */
 

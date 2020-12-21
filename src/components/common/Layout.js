@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import { createGlobalStyle } from 'styled-components'
-import { Header } from '.'
-import { Footer } from '.'
+import { Header, Footer } from '.'
 
 /**
  * Global styles
@@ -27,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     --color-button-shadow: rgba(0, 0, 0, 0.2);
     --color-nav-gradient-left: rgba(255, 255, 255, 1);
     --color-nav-gradient-right: rgba(255, 255, 255, 0);
+    --opacity-dots: 0.2;
 
     @media (prefers-color-scheme: dark) {
       --color-foreground: #ffffff;
@@ -40,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
       --color-button-shadow: rgba(0, 0, 0, 0.6);
       --color-nav-gradient-left: rgba(31, 31, 31, 1);
       --color-nav-gradient-right: rgba(31, 31, 31, 0);
+      --opacity-dots: 1;
     }
   }
 

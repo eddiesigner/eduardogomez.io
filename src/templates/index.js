@@ -4,14 +4,15 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { mediaQueries } from '../utils/mediaQueries'
 
-import { Layout } from '../components/common'
 import { MetaData } from '../components/common/meta'
-import { Wrapper } from '../components/common'
-import { Button } from '../components/common'
-import { Heading } from '../components/common'
-import { Subheading } from '../components/common'
-import { BigText } from '../components/home'
-import { Label } from '../components/home'
+import {
+  Layout,
+  Wrapper,
+  Button,
+  Heading,
+  Subheading,
+} from '../components/common'
+import { BigText, Label, WorkEntry } from '../components/home'
 
 /**
  * Main index page (home page)
@@ -24,7 +25,6 @@ import { Label } from '../components/home'
 const Index = ({ data, location }) => {
   const posts = data.allGhostPost.edges
   const settings = data.allGhostSettings.edges[0].node
-  console.log(posts)
 
   return (
     <>
@@ -41,6 +41,10 @@ const Index = ({ data, location }) => {
           </Masthead>
           <Work>
             <Label>Featured work</Label>
+            {posts.map(({ node }, index) => {
+              const isOdd = index % 2 !== 0
+              return <WorkEntry key={node.id} entry={node} isOdd={isOdd} />
+            })}
           </Work>
         </Wrapper>
         <Contact>
@@ -125,12 +129,13 @@ export const pageQuery = graphql`
   query GhostIndexQuery($limit: Int!, $skip: Int!) {
     allGhostPost(
       sort: { order: DESC, fields: [published_at] }
+      filter: { featured: { eq: true } }
       limit: $limit
       skip: $skip
     ) {
       edges {
         node {
-          ...GhostPostFields
+          ...GhostPostListingFields
         }
       }
     }

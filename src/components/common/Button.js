@@ -3,13 +3,18 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { mediaQueries } from '../../utils/mediaQueries'
 
-const Button = ({ url, children }) => (
-  <Link href={url}>
+const Button = ({ url, disableKeyboardNavigation, children }) => (
+  <Link
+    href={url}
+    aria-hidden={disableKeyboardNavigation}
+    tabIndex={disableKeyboardNavigation ? `-1` : `0`}
+  >
     <Label>{children}</Label>
   </Link>
 )
 
 const Link = styled.a`
+  display: inline-block;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -73,6 +78,7 @@ const Label = styled.span`
 
 Button.propTypes = {
   url: PropTypes.string.isRequired,
+  disableKeyboardNavigation: PropTypes.bool,
 }
 
 export default Button

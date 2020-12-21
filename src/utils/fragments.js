@@ -39,6 +39,22 @@ export const ghostAuthorFields = graphql`
   }
 `
 
+// Used for posts listings
+export const ghostPostListingFields = graphql`
+  fragment GhostPostListingFields on GhostPost {
+    # Main fields
+    id
+    title
+    slug
+    featured
+    feature_image
+    custom_excerpt
+
+    # Additional fields
+    url
+  }
+`
+
 // Used for single posts
 export const ghostPostFields = graphql`
   fragment GhostPostFields on GhostPost {
