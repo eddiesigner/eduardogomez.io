@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import { mediaQueries } from '../utils/mediaQueries'
-
 import { MetaData } from '../components/common/meta'
 import {
   Layout,
@@ -17,7 +16,7 @@ import { BigText, Label, WorkEntry } from '../components/home'
 /**
  * Main index page (home page)
  *
- * Loads all posts from Ghost and uses pagination to navigate through them.
+ * Loads all featured posts from Ghost and uses pagination to navigate through them.
  * The number of posts that should appear per page can be setup
  * in /utils/siteConfig.js under `postsPerPage`.
  *
@@ -29,7 +28,7 @@ const Index = ({ data, location }) => {
   return (
     <>
       <MetaData location={location} />
-      <Layout location={location} isHome={true}>
+      <Layout location={location} isHome>
         <Wrapper>
           <Masthead>
             <Title>
@@ -123,7 +122,7 @@ Index.propTypes = {
 
 export default Index
 
-// This page query loads all posts sorted descending by published date
+// This page query loads all featured posts sorted descending by published date
 // The `limit` and `skip` values are used for pagination
 export const pageQuery = graphql`
   query GhostIndexQuery($limit: Int!, $skip: Int!) {

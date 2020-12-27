@@ -50,6 +50,15 @@ export const ghostPostListingFields = graphql`
     feature_image
     custom_excerpt
 
+    # Dates formatted
+    published_at_pretty: published_at(formatString: "MMMM DD, YYYY")
+
+    # Tags
+    primary_tag {
+      name
+      slug
+    }
+
     # Additional fields
     url
   }

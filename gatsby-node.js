@@ -11,7 +11,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allGhostPost(sort: { order: ASC, fields: published_at }) {
+      allGhostPost(
+        sort: { order: ASC, fields: published_at }
+        filter: { featured: { eq: false } }
+      ) {
         edges {
           node {
             slug
@@ -60,6 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Load templates
   const indexTemplate = path.resolve(`./src/templates/index.js`)
+  const writingsTemplate = path.resolve(`./src/templates/writings.js`)
   const tagsTemplate = path.resolve(`./src/templates/tag.js`)
   const authorTemplate = path.resolve(`./src/templates/author.js`)
   const pageTemplate = path.resolve(`./src/templates/page.js`)
@@ -185,7 +189,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // Create pagination
+  // Create Index pagination
   paginate({
     createPage,
     items: posts,
@@ -196,6 +200,21 @@ exports.createPages = async ({ graphql, actions }) => {
         return `/`
       } else {
         return `/page`
+      }
+    },
+  })
+
+  // Create Writings pagination
+  paginate({
+    createPage,
+    items: posts,
+    itemsPerPage: postsPerPage,
+    component: writingsTemplate,
+    pathPrefix: ({ pageNumber }) => {
+      if (pageNumber === 0) {
+        return `/writings`
+      } else {
+        return `/writings/page`
       }
     },
   })

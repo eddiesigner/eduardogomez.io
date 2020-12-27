@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
+import { mediaQueries } from '../../utils/mediaQueries'
 import { Header, Footer } from '.'
 
 /**
@@ -57,7 +58,7 @@ const GlobalStyle = createGlobalStyle`
  * styles, and meta data for each page.
  *
  */
-const DefaultLayout = ({ data, children, location }) => {
+const DefaultLayout = ({ data, children, location, isHome }) => {
   const site = data.allGhostSettings.edges[0].node
 
   return (
@@ -77,15 +78,23 @@ const DefaultLayout = ({ data, children, location }) => {
         title={site.title}
       />
 
-      <main>
+      <Main isHome={isHome}>
         {/* All the main content gets inserted here, index.js, post.js */}
         {children}
-      </main>
+      </Main>
 
       <Footer secondaryNavigation={site.secondary_navigation} />
     </>
   )
 }
+
+const Main = styled.main`
+  padding-bottom: ${props => (props.isHome ? `0` : `4.6875rem`)};
+
+  @media ${mediaQueries.medium} {
+    padding-bottom: ${props => (props.isHome ? `0` : `6.25rem`)};
+  }
+`
 
 DefaultLayout.propTypes = {
   children: PropTypes.node.isRequired,

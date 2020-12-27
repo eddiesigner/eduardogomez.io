@@ -20,7 +20,7 @@ const Footer = ({ secondaryNavigation }) => (
           </NavigationList>
         </nav>
         <SourceCodeLink href="https://github.com/eddiesigner/eduardogomez.io">
-          Source code of this website
+          &lt;/&gt; Source Code
         </SourceCodeLink>
       </Content>
     </Wrapper>
@@ -74,9 +74,14 @@ const NavLink = styled.a`
   font-weight: 500;
   text-decoration: none;
   opacity: 0.8;
+  transition: opacity 0.2s linear;
 
   @media ${mediaQueries.medium} {
     font-size: 1rem;
+  }
+
+  &:hover {
+    opacity: 0.6;
   }
 `
 
@@ -87,9 +92,14 @@ const SourceCodeLink = styled.a`
   font-size: 0.875rem;
   font-weight: 500;
   opacity: 0.5;
+  transition: opacity 0.2s linear;
 
   @media ${mediaQueries.medium} {
     font-size: 0.9375rem;
+  }
+
+  &:hover {
+    opacity: 0.3;
   }
 `
 

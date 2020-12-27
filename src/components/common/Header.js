@@ -196,6 +196,11 @@ const NavLink = styled.a`
   font-size: 1rem;
   font-weight: 600;
   opacity: 0.8;
+  transition: opacity 0.2s linear;
+
+  &:hover {
+    opacity: 0.6;
+  }
 `
 
 Header.propTypes = {

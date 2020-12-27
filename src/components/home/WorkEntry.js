@@ -129,9 +129,14 @@ const InfoContainer = styled.div`
 `
 
 const TitleLink = styled.a`
-  display: block;
+  display: inline-block;
   text-decoration: none;
   margin-bottom: 1.5625rem;
+  transition: opacity 0.2s linear;
+
+  &:hover {
+    opacity: 0.7;
+  }
 `
 
 const Title = styled.h2`
