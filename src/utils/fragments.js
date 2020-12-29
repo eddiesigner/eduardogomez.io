@@ -24,21 +24,6 @@ export const ghostTagFields = graphql`
   }
 `
 
-// Used for author pages
-export const ghostAuthorFields = graphql`
-  fragment GhostAuthorFields on GhostAuthor {
-    slug
-    name
-    bio
-    cover_image
-    profile_image
-    location
-    website
-    twitter
-    facebook
-  }
-`
-
 // Used for posts listings
 export const ghostPostListingFields = graphql`
   fragment GhostPostListingFields on GhostPost {

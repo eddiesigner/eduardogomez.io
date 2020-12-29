@@ -160,15 +160,6 @@ module.exports = {
                 }
               }
             }
-            allGhostAuthor {
-              edges {
-                node {
-                  id
-                  slug
-                  profile_image
-                }
-              }
-            }
           }`,
         mapping: {
           allGhostPost: {
@@ -176,9 +167,6 @@ module.exports = {
           },
           allGhostTag: {
             sitemap: `tags`,
-          },
-          allGhostAuthor: {
-            sitemap: `authors`,
           },
           allGhostPage: {
             sitemap: `pages`,
