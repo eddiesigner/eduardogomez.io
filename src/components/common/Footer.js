@@ -28,6 +28,7 @@ const Footer = ({ secondaryNavigation }) => (
 )
 
 const Container = styled.footer`
+  flex-shrink: 0;
   padding: 2.1875rem 0;
   border-top: 0.0625rem solid var(--color-border);
 

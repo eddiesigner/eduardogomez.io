@@ -71,24 +71,35 @@ const DefaultLayout = ({ data, children, location, isHome }) => {
 
       <GlobalStyle />
 
-      <Header
-        location={location}
-        navigation={site.navigation}
-        logo={site.logo}
-        title={site.title}
-      />
+      <MainContainer>
+        <Header
+          location={location}
+          navigation={site.navigation}
+          logo={site.logo}
+          title={site.title}
+        />
 
-      <Main isHome={isHome}>
-        {/* All the main content gets inserted here, index.js, post.js */}
-        {children}
-      </Main>
+        <Main isHome={isHome}>
+          {/* All the main content gets inserted here, index.js, post.js */}
+          {children}
+        </Main>
 
-      <Footer secondaryNavigation={site.secondary_navigation} />
+        <Footer secondaryNavigation={site.secondary_navigation} />
+      </MainContainer>
     </>
   )
 }
 
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`
+
 const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   padding-bottom: ${props => (props.isHome ? `0` : `4.6875rem`)};
 
   @media ${mediaQueries.medium} {
