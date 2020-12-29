@@ -107,30 +107,6 @@ module.exports = {
      *  Utility Plugins
      */
     {
-      resolve: `gatsby-plugin-ghost-manifest`,
-      options: {
-        short_name: config.shortTitle,
-        start_url: `/`,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: `minimal-ui`,
-        icon: `static/${config.siteIcon}`,
-        legacy: true,
-        query: `
-          {
-            allGhostSettings {
-              edges {
-                node {
-                  title
-                  description
-                }
-              }
-            }
-          }
-        `,
-      },
-    },
-    {
       resolve: `gatsby-plugin-feed`,
       options: {
         query: `
