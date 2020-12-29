@@ -8,6 +8,7 @@ import {
   Layout,
   Wrapper,
   Button,
+  MastHead,
   Heading,
   Subheading,
 } from '../components/common'
@@ -27,17 +28,17 @@ const Index = ({ data, location }) => {
 
   return (
     <>
-      <MetaData location={location} />
+      <MetaData location={location} title="Home" />
       <Layout location={location} isHome>
         <Wrapper>
-          <Masthead>
+          <MastHead inHome>
             <Title>
               <BigText gradient>{settings.title}</BigText>
               <BigText>Frontend Engineer.</BigText>
               <BigText>Designer.</BigText>
             </Title>
             <Subheading bigger>{settings.description}</Subheading>
-          </Masthead>
+          </MastHead>
           <Work>
             <Label>Featured work</Label>
             {posts.map(({ node }, index) => {
@@ -64,15 +65,6 @@ const Index = ({ data, location }) => {
     </>
   )
 }
-
-const Masthead = styled.section`
-  margin-bottom: 6.25rem;
-
-  @media ${mediaQueries.medium} {
-    max-width: 41.875rem;
-    margin-bottom: 9.375rem;
-  }
-`
 
 const Title = styled.h1`
   margin: 0 0 2.5rem;

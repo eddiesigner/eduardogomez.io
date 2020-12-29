@@ -34,7 +34,9 @@ const WebsiteMeta = ({
     data.description ||
     config.siteDescriptionMeta ||
     settings.description
-  title = settings.title || title || data.meta_title || data.name || data.title
+  title = `${settings.title} - ${
+    title || data.meta_title || data.name || data.title
+  }`
 
   const jsonLd = {
     '@context': `https://schema.org/`,

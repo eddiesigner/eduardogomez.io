@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
-import { mediaQueries } from '../utils/mediaQueries'
 import { MetaData } from '../components/common/meta'
 import {
   Layout,
   Wrapper,
+  MastHead,
   Heading,
   Subheading,
   PostEntry,
@@ -26,7 +25,7 @@ const Writings = ({ data, location, pageContext }) => {
 
   return (
     <>
-      <MetaData location={location} />
+      <MetaData location={location} title="Writings" />
       <Layout location={location}>
         <Wrapper smaller>
           <MastHead>
@@ -51,14 +50,6 @@ const Writings = ({ data, location, pageContext }) => {
     </>
   )
 }
-
-const MastHead = styled.section`
-  margin-bottom: 4.6875rem;
-
-  @media ${mediaQueries.medium} {
-    margin-bottom: 6.25rem;
-  }
-`
 
 Writings.propTypes = {
   data: PropTypes.shape({
