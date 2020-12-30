@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { mediaQueries } from '../../utils/mediaQueries'
+import { MetaContainer } from './'
 
 const PostEntry = ({ entry, isLast }) => {
   const url = `/${entry.slug}/`
@@ -12,14 +13,10 @@ const PostEntry = ({ entry, isLast }) => {
       <TitleLink to={url}>
         <Title>{entry.title}</Title>
       </TitleLink>
-      <MetaContainer>
-        {entry.primary_tag && (
-          <Tag to={`/tag/${entry.primary_tag.slug}`}>
-            {entry.primary_tag.name}
-          </Tag>
-        )}
-        <DateLabel>— {entry.published_at_pretty}</DateLabel>
-      </MetaContainer>
+      <MetaContainer
+        tag={entry.primary_tag}
+        publishedDate={entry.published_at_pretty}
+      />
     </Article>
   )
 }
@@ -52,40 +49,13 @@ const Title = styled.h2`
   }
 `
 
-const MetaContainer = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-const Tag = styled(Link)`
-  display: inline-block;
-  color: var(--color-foreground);
-  line-height: 1.3;
-  text-decoration: none;
-  text-transform: capitalize;
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-right: 1.5625rem;
-  transition: opacity 0.2s linear;
-
-  @media ${mediaQueries.medium} {
-    font-size: 1rem;
-  }
-
-  &:hover {
-    opacity: 0.7;
-  }
-`
-
-const DateLabel = styled.span`
-  display: inline-block;
-  color: var(--color-text);
-  line-height: 1.3;
-  font-size: 0.875rem;
-`
-
 PostEntry.propTypes = {
-  entry: PropTypes.object.isRequired,
+  entry: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    primary_tag: PropTypes.object,
+    published_at_pretty: PropTypes.string.isRequired,
+  }).isRequired,
   isLast: PropTypes.bool,
 }
 

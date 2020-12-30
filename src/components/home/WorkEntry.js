@@ -165,7 +165,12 @@ const Excerpt = styled.p`
 `
 
 WorkEntry.propTypes = {
-  entry: PropTypes.object.isRequired,
+  entry: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    feature_image: PropTypes.string,
+    custom_excerpt: PropTypes.string,
+  }).isRequired,
   isOdd: PropTypes.bool,
 }
 
