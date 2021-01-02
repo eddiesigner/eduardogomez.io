@@ -1,19 +1,34 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { mediaQueries } from '../../utils/mediaQueries'
 
-const Button = ({ url, disableKeyboardNavigation, children }) => (
-  <Link
-    href={url}
-    aria-hidden={disableKeyboardNavigation}
-    tabIndex={disableKeyboardNavigation ? `-1` : `0`}
-  >
-    <Label>{children}</Label>
-  </Link>
-)
+const Button = ({ url, isExternal, disableKeyboardNavigation, children }) => {
+  if (isExternal) {
+    return (
+      <ExternalLink
+        href={url}
+        aria-hidden={disableKeyboardNavigation}
+        tabIndex={disableKeyboardNavigation ? `-1` : `0`}
+      >
+        <Label>{children}</Label>
+      </ExternalLink>
+    )
+  }
 
-const Link = styled.a`
+  return (
+    <InternalLink
+      to={url}
+      aria-hidden={disableKeyboardNavigation}
+      tabIndex={disableKeyboardNavigation ? `-1` : `0`}
+    >
+      <Label>{children}</Label>
+    </InternalLink>
+  )
+}
+
+const buttonStyles = `
   display: inline-block;
   position: relative;
   text-align: center;
@@ -67,6 +82,14 @@ const Link = styled.a`
   }
 `
 
+const InternalLink = styled(Link)`
+  ${buttonStyles}
+`
+
+const ExternalLink = styled.a`
+  ${buttonStyles}
+`
+
 const Label = styled.span`
   position: relative;
   color: var(--color-background);
@@ -78,6 +101,7 @@ const Label = styled.span`
 
 Button.propTypes = {
   url: PropTypes.string.isRequired,
+  isExternal: PropTypes.bool,
   disableKeyboardNavigation: PropTypes.bool,
 }
 

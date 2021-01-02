@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { Button, LazyImage } from '../common'
 import { mediaQueries } from '../../utils/mediaQueries'
 
@@ -9,10 +10,7 @@ const WorkEntry = ({ entry, isOdd }) => {
   const imageUrl = entry.feature_image
   const srcSet = []
 
-  if (
-    entry.feature_image &&
-    entry.feature_image.indexOf(`/content/images/`) > -1
-  ) {
+  if (imageUrl && imageUrl.indexOf(`/content/images/`) > -1) {
     srcSet[0] = imageUrl.replace(
       `/content/images/`,
       `/content/images/size/w600/`
@@ -27,7 +25,7 @@ const WorkEntry = ({ entry, isOdd }) => {
     <Article>
       {entry.feature_image && (
         <ImageContainer isOdd={isOdd}>
-          <ImageLink href={url} aria-hidden="true" tabIndex="-1">
+          <ImageLink to={url} aria-hidden="true" tabIndex="-1">
             <Image
               sizes="(max-width: 48rem) 37.5rem, 62.5rem"
               srcset={
@@ -42,7 +40,7 @@ const WorkEntry = ({ entry, isOdd }) => {
         </ImageContainer>
       )}
       <InfoContainer isOdd={isOdd}>
-        <TitleLink href={url}>
+        <TitleLink to={url}>
           <Title>{entry.title}</Title>
         </TitleLink>
         <Excerpt>{entry.custom_excerpt}</Excerpt>
@@ -100,7 +98,7 @@ const ImageContainer = styled.div`
   }
 `
 
-const ImageLink = styled.a`
+const ImageLink = styled(Link)`
   display: block;
   position: relative;
   padding: 0.3125rem;
@@ -128,7 +126,7 @@ const InfoContainer = styled.div`
   }
 `
 
-const TitleLink = styled.a`
+const TitleLink = styled(Link)`
   display: inline-block;
   text-decoration: none;
   margin-bottom: 1.5625rem;

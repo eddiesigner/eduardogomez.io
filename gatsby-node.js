@@ -11,13 +11,11 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allGhostPost(
-        sort: { order: ASC, fields: published_at }
-        filter: { featured: { eq: false } }
-      ) {
+      allGhostPost(sort: { order: ASC, fields: published_at }) {
         edges {
           node {
             slug
+            featured
           }
         }
       }
@@ -138,7 +136,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create Index pagination
   paginate({
     createPage,
-    items: posts,
+    items: posts.filter(({ node }) => node.featured),
     itemsPerPage: postsPerPage,
     component: indexTemplate,
     pathPrefix: ({ pageNumber }) => {
@@ -153,7 +151,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create Writings pagination
   paginate({
     createPage,
-    items: posts,
+    items: posts.filter(({ node }) => !node.featured),
     itemsPerPage: postsPerPage,
     component: writingsTemplate,
     pathPrefix: ({ pageNumber }) => {

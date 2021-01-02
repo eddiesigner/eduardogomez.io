@@ -7,7 +7,8 @@ import { mediaQueries } from '../../utils/mediaQueries'
 const MetaContainer = ({ tag, publishedDate }) => (
   <Container>
     {tag && <Tag to={`/tag/${tag.slug}`}>{tag.name}</Tag>}
-    <DateLabel>— {publishedDate}</DateLabel>
+    {tag && <Label>— &nbsp;</Label>}
+    <Label>{publishedDate}</Label>
   </Container>
 )
 
@@ -36,7 +37,7 @@ const Tag = styled(Link)`
   }
 `
 
-const DateLabel = styled.span`
+const Label = styled.span`
   display: inline-block;
   color: var(--color-text);
   line-height: 1.3;

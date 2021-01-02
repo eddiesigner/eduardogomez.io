@@ -33,9 +33,9 @@ const Tag = ({ data, location, pageContext }) => {
             <Heading type="h1" centered>
               {tag.name}
             </Heading>
-            {tag.description ? (
+            {tag.description && (
               <Subheading centered>{tag.description}</Subheading>
-            ) : null}
+            )}
           </MastHead>
           <section>
             {posts.map(({ node }, index) => {

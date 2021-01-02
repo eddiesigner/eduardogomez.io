@@ -57,7 +57,9 @@ const Index = ({ data, location }) => {
               write me an email, I will try to answer as soon as possible.
             </Subheading>
             <ButtonContainer>
-              <Button url="mailto:this.eduardo@gmail.com">Email Me</Button>
+              <Button url="mailto:this.eduardo@gmail.com" isExternal>
+                Email Me
+              </Button>
             </ButtonContainer>
           </Wrapper>
         </Contact>

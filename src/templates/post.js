@@ -2,10 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import styled from 'styled-components'
 import { MetaData } from '../components/common/meta'
-import { mediaQueries } from '../utils/mediaQueries'
-import { Layout, Wrapper, MetaContainer } from '../components/common'
+import {
+  Layout,
+  Wrapper,
+  Subheading,
+  MetaContainer,
+} from '../components/common'
+import {
+  PostHeader,
+  PostTitle,
+  PostImage,
+  PostContent,
+} from '../components/post'
+
+/**
+ * Post styles
+ */
+import '../styles/post.css'
 
 /**
  * Single post view (/:slug)
@@ -26,38 +40,25 @@ const Post = ({ data, location }) => {
         <Wrapper smaller>
           <article>
             <PostHeader>
-              <Title>{post.title}</Title>
+              <PostTitle>{post.title}</PostTitle>
+              {post.custom_excerpt && (
+                <Subheading inPost>{post.custom_excerpt}</Subheading>
+              )}
               <MetaContainer
                 tag={post.primary_tag}
                 publishedDate={post.published_at_pretty}
               />
             </PostHeader>
+            {post.feature_image && (
+              <PostImage featureImage={post.feature_image} />
+            )}
+            {post.html && <PostContent html={post.html} />}
           </article>
         </Wrapper>
       </Layout>
     </>
   )
 }
-
-const PostHeader = styled.header`
-  margin-bottom: 2.5rem;
-
-  @media ${mediaQueries.medium} {
-    margin-bottom: 3.125rem;
-  }
-`
-
-const Title = styled.h1`
-  color: var(--color-foreground);
-  line-height: 1.3;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0 0 1.25rem;
-
-  @media ${mediaQueries.medium} {
-    margin-bottom: 1.5625rem;
-  }
-`
 
 Post.propTypes = {
   data: PropTypes.shape({
@@ -68,6 +69,7 @@ Post.propTypes = {
       feature_image: PropTypes.string,
       primary_tag: PropTypes.object,
       published_at_pretty: PropTypes.string.isRequired,
+      custom_excerpt: PropTypes.string,
     }).isRequired,
   }).isRequired,
   location: PropTypes.object.isRequired,
