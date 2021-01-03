@@ -103,6 +103,22 @@ module.exports = {
           ? ghostConfig.development
           : ghostConfig.production,
     },
+    // Setup for code syntax highlighting.
+    {
+      resolve: `gatsby-transformer-rehype`,
+      options: {
+        filter: node => node.internal.type === `GhostPost` ||
+          node.internal.type === `GhostPage`,
+        plugins: [
+          {
+            resolve: `gatsby-rehype-prismjs`,
+            options: {
+              noInlineHighlight: true,
+            },
+          },
+        ],
+      },
+    },
     /**
      *  Utility Plugins
      */

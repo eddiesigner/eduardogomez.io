@@ -176,6 +176,7 @@
 
 .post-full-content iframe {
   max-width: 100%;
+  margin: 0 0 2.5rem;
 }
 
 .post-full-content .fluid-width-video-wrapper {
@@ -449,6 +450,20 @@
   color: inherit;
 }
 
+.post-full-content .kg-image-card.kg-embed-card,
+.post-full-content figure.kg-embed-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+  margin: 0 auto;
+}
+
+.post-full-content .kg-image-card.kg-embed-card iframe,
+.post-full-content figure.kg-embed-card iframe {
+  margin: 0 auto;
+}
+
 .post-full-content blockquote {
   position: relative;
   color: var(--color-text);
@@ -555,6 +570,20 @@
 
 .post-full-content pre.line-numbers > code {
   padding: 0;
+}
+
+.post-full-content code {
+  text-shadow: none;
+}
+
+.post-full-content .token.operator {
+  background: none;
+}
+
+.post-full-content pre[class*='language-'],
+.post-full-content code[class*='language-'] {
+  color: #ffffff;
+  background: #2a2a2a;
 }
 
 .post-full-content hr {

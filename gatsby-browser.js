@@ -1,4 +1,7 @@
 /* eslint-disable */
+
+require('prismjs/themes/prism-tomorrow.css')
+
 /**
  * Trust All Scripts
  *

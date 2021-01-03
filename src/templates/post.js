@@ -52,7 +52,7 @@ const Post = ({ data, location }) => {
             {post.feature_image && (
               <PostImage featureImage={post.feature_image} />
             )}
-            {post.html && <PostContent html={post.html} />}
+            {post.html && <PostContent html={post.childHtmlRehype.html} />}
           </article>
         </Wrapper>
       </Layout>
@@ -70,6 +70,9 @@ Post.propTypes = {
       primary_tag: PropTypes.object,
       published_at_pretty: PropTypes.string.isRequired,
       custom_excerpt: PropTypes.string,
+      childHtmlRehype: PropTypes.shape({
+        html: PropTypes.string.isRequired,
+      }),
     }).isRequired,
   }).isRequired,
   location: PropTypes.object.isRequired,
