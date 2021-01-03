@@ -29,4 +29,7 @@ var trustAllScripts = function () {
 
 exports.onRouteUpdate = function () {
   trustAllScripts()
+  setTimeout(() => {
+    dispatchEvent(new Event('load'))
+  }, 1000)
 }

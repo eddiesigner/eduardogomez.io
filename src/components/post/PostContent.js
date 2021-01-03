@@ -1,12 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import InnerHTML from 'dangerously-set-html-content'
 
 const PostContent = ({ html }) => (
   <section className="post-full-content">
-    <div
-      className="content-body load-external-scripts"
-      dangerouslySetInnerHTML={{ __html: html }}
-    ></div>
+    <InnerHTML className="content-body load-external-scripts" html={html} />
   </section>
 )
 
