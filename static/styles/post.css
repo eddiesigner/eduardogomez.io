@@ -530,6 +530,7 @@
 }
 
 .post-full-content pre {
+  width: calc(100vw - 40px);
   padding: 1.25rem;
   margin: 0 0 1.5625rem;
   overflow: auto;
@@ -548,6 +549,7 @@
 
 @media only screen and (min-width: 48rem) {
   .post-full-content pre {
+    width: 100%;
     margin-bottom: 2.1875rem;
   }
 }

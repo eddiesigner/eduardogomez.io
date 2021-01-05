@@ -40,7 +40,6 @@ GTM_ID=GTM-XXXXXXX
 
 The API URL is the URL of your Ghost site. For Ghost(Pro) customers, this is the Ghost URL ending in `.ghost.io`, and for people using the self-hosted version of Ghost, it's the same URL used to access your site.
 
-
 A Content API Key can be provided by creating an integration within Ghost Admin. Navigate to Integrations and click "Add new integration". Name the integration appropriately and click create.
 
 Start the development server. You now have a Gatsby site pulling content from headless Ghost.

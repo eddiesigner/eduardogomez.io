@@ -15,6 +15,7 @@ const MetaContainer = ({ tag, publishedDate }) => (
 const Container = styled.div`
   display: flex;
   align-items: center;
+  white-space: nowrap;
 `
 
 const Tag = styled(Link)`
