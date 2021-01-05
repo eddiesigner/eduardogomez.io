@@ -28,6 +28,8 @@ const WebsiteMeta = ({
 
   shareImage = shareImage ? url.resolve(config.siteUrl, shareImage) : null
 
+  const icon = settings.icon ? url.resolve(config.siteUrl, settings.icon) : null
+
   description =
     description ||
     data.meta_description ||
@@ -73,6 +75,7 @@ const WebsiteMeta = ({
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonical} />
+        <link rel="shortcut icon" href={icon}></link>
         <meta property="og:site_name" content={settings.title} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={title} />
@@ -115,6 +118,7 @@ WebsiteMeta.propTypes = {
   }).isRequired,
   settings: PropTypes.shape({
     logo: PropTypes.object,
+    icon: PropTypes.string,
     description: PropTypes.string,
     title: PropTypes.string,
     twitter: PropTypes.string,
