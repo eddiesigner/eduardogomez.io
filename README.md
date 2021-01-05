@@ -1,6 +1,6 @@
 # eduardogomez.io
 
-The source code for my personal website built with [Gatsby](https://www.gatsbyjs.com/) and [Ghost](https://ghost.org/).
+The source code for my personal website built with [Gatsby](https://www.gatsbyjs.com/) and [Ghost](https://ghost.org/) as a headless CMS.
 
 &nbsp;
 
@@ -71,15 +71,15 @@ Gatsby `develop` uses the `development` variables in `.env.development` - while 
 
 # Deploying with Netlify
 
-The starter contains three config files specifically for deploying with Netlify. A `netlify.toml` file for build settings, a `/static/_headers` file with default security headers set for all routes, and `/static/_redirects` to set Netlify custom domain redirects.
+The project contains three config files specifically for deploying with Netlify. A `netlify.toml` file for build settings, a `/static/_headers` file with default security headers set for all routes, and `/static/_redirects` to set Netlify custom domain redirects.
 
 To deploy to your Netlify account, hit the button below.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/eddiesigner/eduardogomez.io)
 
-Content API Keys must be set as [Netlify ENV variables](https://www.netlify.com/docs/continuous-deployment/#build-environment-variables) for production builds.
+Content API Keys must be set as [Netlify ENV variables](https://docs.netlify.com/configure-builds/environment-variables/) for production builds.
 
-Once deployed, you can set up a [Ghost + Netlify Integration](https://docs.ghost.org/integrations/netlify/) to use deploy hooks from Ghost to trigger Netlify rebuilds. That way, any time data changes in Ghost, your site will rebuild on Netlify.
+Once deployed, you can set up a [Ghost + Netlify Integration](https://ghost.org/integrations/netlify/) to use deploy hooks from Ghost to trigger Netlify rebuilds. That way, any time data changes in Ghost, your site will rebuild on Netlify.
 
 &nbsp;
 
