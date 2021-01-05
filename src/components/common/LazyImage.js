@@ -2,17 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import LazyLoad from 'vanilla-lazyload'
 
-if (!document.lazyLoadInstance) {
-  document.lazyLoadInstance = new LazyLoad(`.lazy`)
-}
-
 export class LazyImage extends React.Component {
   componentDidMount() {
-    document.lazyLoadInstance.update()
+    if (!document.lazyLoadInstance) {
+      document.lazyLoadInstance = new LazyLoad(`.lazy`)
+    } else {
+      document.lazyLoadInstance.update()
+    }
   }
 
   componentDidUpdate() {
-    document.lazyLoadInstance.update()
+    if (document.lazyLoadInstance) {
+      document.lazyLoadInstance.update()
+    }
   }
 
   render() {

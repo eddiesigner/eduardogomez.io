@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { Button, LazyImage } from '../common'
 import { mediaQueries } from '../../utils/mediaQueries'
+import dotImage from '../../images/dot.png'
 
 const WorkEntry = ({ entry, isOdd }) => {
   const url = `/${entry.slug}/`
@@ -86,7 +87,7 @@ const ImageContainer = styled.div`
     opacity: var(--opacity-dots);
     background-repeat: repeat;
     background-size: 0.3125rem;
-    background-image: url(./images/dot.png);
+    background-image: url(${dotImage});
     z-index: 0;
 
     @media ${mediaQueries.large} {

@@ -17,11 +17,6 @@ import {
 } from '../components/post'
 
 /**
- * Post styles
- */
-import '../styles/post.css'
-
-/**
  * Single post view (/:slug)
  *
  * This file renders a single post and loads all the content.
@@ -34,6 +29,7 @@ const Post = ({ data, location }) => {
     <>
       <MetaData data={data} location={location} type="article" />
       <Helmet>
+        <link rel="stylesheet" type="text/css" href="/styles/post.css" />
         <style type="text/css">{`${post.codeinjection_styles}`}</style>
       </Helmet>
       <Layout location={location}>
