@@ -33,7 +33,7 @@ const Index = ({ data, location }) => {
         <Wrapper>
           <MastHead inHome>
             <Title>
-              <BigText gradient>{settings.title}</BigText>
+              <BigText gradient>{settings.title}.</BigText>
               <BigText>Frontend Engineer.</BigText>
               <BigText>Designer.</BigText>
             </Title>
