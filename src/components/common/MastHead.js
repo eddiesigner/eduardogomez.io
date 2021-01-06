@@ -11,7 +11,7 @@ const Container = styled.section`
   margin-bottom: ${props => (props.inHome ? `6.25rem` : `4.6875rem`)};
 
   @media ${mediaQueries.medium} {
-    max-width: ${props => (props.inHome ? `41.875rem` : `100%`)};
+    max-width: ${props => (props.inHome ? `48.75rem` : `100%`)};
     margin-bottom: ${props => (props.inHome ? `9.375rem` : `6.25rem`)};
   }
 `

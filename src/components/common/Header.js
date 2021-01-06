@@ -39,7 +39,7 @@ const Header = ({ location, navigation, logo, title }) => (
 
 const Container = styled.header`
   padding: 1.875rem 0;
-  margin-bottom: 3.75rem;
+  margin-bottom: 3.125rem;
 
   @media ${mediaQueries.medium} {
     padding: 3.125rem 0;
