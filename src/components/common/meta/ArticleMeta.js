@@ -29,6 +29,8 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
       ? url.resolve(config.siteUrl, settings.logo || config.siteIcon)
       : null
 
+  const icon = settings.icon ? url.resolve(config.siteUrl, settings.icon) : null
+
   const jsonLd = {
     '@context': `https://schema.org/`,
     '@type': `Article`,
@@ -77,6 +79,7 @@ const ArticleMetaGhost = ({ data, settings, canonical }) => {
           content={ghostPost.meta_description || ghostPost.excerpt}
         />
         <link rel="canonical" href={canonical} />
+        <link rel="shortcut icon" href={icon}></link>
 
         <meta property="og:site_name" content={settings.title} />
         <meta property="og:type" content="article" />
@@ -175,6 +178,7 @@ ArticleMetaGhost.propTypes = {
   }).isRequired,
   settings: PropTypes.shape({
     logo: PropTypes.object,
+    icon: PropTypes.string,
     title: PropTypes.string,
     twitter: PropTypes.string,
     allGhostSettings: PropTypes.object.isRequired,
