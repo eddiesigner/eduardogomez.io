@@ -9,6 +9,7 @@ const Wrapper = ({ smaller, children }) => (
 
 const Container = styled.div`
   padding: 0 1.25rem;
+  width: 100%;
   max-width: ${props => (props.smaller ? `38.75rem` : `72.5rem`)};
   margin: 0 auto;
 
