@@ -121,6 +121,8 @@
 .post-full-content ul {
   line-height: 1.8;
   font-size: 1rem;
+  list-style-position: inside;
+  padding: 0;
   margin-bottom: 1.5625rem;
 }
 
