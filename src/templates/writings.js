@@ -10,6 +10,7 @@ import {
   Subheading,
   PostEntry,
   Pagination,
+  EmptyMessage,
 } from '../components/common'
 
 /**
@@ -33,16 +34,23 @@ const Writings = ({ data, location, pageContext }) => {
               Writings
             </Heading>
             <Subheading centered>
-              Here I write about stuff related to frontend development and
-              design, from time to time I also write about some personal
-              aspects.
+              Here in my blog I write about frontend development and topics
+              related to UI/UX design, occasionally I also write about personal
+              stuff.
             </Subheading>
           </MastHead>
           <section>
-            {posts.map(({ node }, index) => {
-              const isLast = index === posts.length - 1
-              return <PostEntry key={node.id} entry={node} isLast={isLast} />
-            })}
+            {posts.length > 0 ? (
+              posts.map(({ node }, index) => {
+                const isLast = index === posts.length - 1
+                return <PostEntry key={node.id} entry={node} isLast={isLast} />
+              })
+            ) : (
+              <EmptyMessage>
+                There are no publications at this time, please check back later
+                😅
+              </EmptyMessage>
+            )}
           </section>
           <Pagination pageContext={pageContext} />
         </Wrapper>
