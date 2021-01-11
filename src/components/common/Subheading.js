@@ -16,7 +16,10 @@ const Text = styled.p`
   font-size: ${props => (props.bigger ? `1.125rem` : `1rem`)};
   font-weight: 500;
   max-width: 32.5rem;
-  margin: ${props => (props.inPost ? `0 0 1.5625rem` : `0`)};
+  margin-top: 0;
+  margin-left: ${props => (props.centered ? `auto` : `0`)};
+  margin-right: ${props => (props.centered ? `auto` : `0`)};
+  margin-bottom: ${props => (props.inPost ? `1.5625rem` : `0`)};
 
   @media ${mediaQueries.medium} {
     line-height: 1.6;

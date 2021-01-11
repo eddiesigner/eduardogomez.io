@@ -11,11 +11,12 @@ const Message = styled.p`
   font-size: 0.875rem;
   opacity: 0.8;
   width: 100%;
-  max-width: 23.75rem;
+  max-width: 20rem;
   margin: 0 auto;
 
   @media ${mediaQueries.medium} {
     font-size: 1rem;
+    max-width: 23.75rem;
   }
 `
 
