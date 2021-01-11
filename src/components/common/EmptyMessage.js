@@ -4,7 +4,7 @@ import { mediaQueries } from '../../utils/mediaQueries'
 
 const EmptyMessage = ({ children }) => <Message>{children}</Message>
 
-const Message = styled.div`
+const Message = styled.p`
   color: var(--color-foreground);
   line-height: 1.7;
   text-align: center;
