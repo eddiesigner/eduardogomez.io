@@ -45,7 +45,7 @@ const TagLink = styled(Link)`
   line-height: 1.3;
   font-size: 0.8125rem;
   font-weight: 500;
-  padding: 0.1875rem 0.4375rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 0.125rem;
   border: 0.0625rem solid var(--color-border);
   transition: opacity 0.2s linear;
