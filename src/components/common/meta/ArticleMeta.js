@@ -4,11 +4,9 @@ import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import url from 'url'
-
 import getAuthorProperties from './getAuthorProperties'
 import ImageMeta from './ImageMeta'
 import config from '../../../utils/siteConfig'
-
 import { tags as tagsHelper } from '@tryghost/helpers'
 
 const ArticleMetaGhost = ({ data, settings, canonical }) => {

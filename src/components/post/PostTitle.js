@@ -12,6 +12,7 @@ const Title = styled.h1`
   margin: 0 0 1.25rem;
 
   @media ${mediaQueries.medium} {
+    font-size: 2.625rem;
     margin-bottom: 1.5625rem;
   }
 `

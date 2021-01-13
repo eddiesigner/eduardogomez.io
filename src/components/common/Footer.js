@@ -92,7 +92,7 @@ const SourceCodeLink = styled.a`
   text-decoration: none;
   font-size: 0.875rem;
   font-weight: 500;
-  opacity: 0.5;
+  opacity: 0.6;
   transition: opacity 0.2s linear;
 
   @media ${mediaQueries.medium} {
@@ -100,7 +100,7 @@ const SourceCodeLink = styled.a`
   }
 
   &:hover {
-    opacity: 0.3;
+    opacity: 0.4;
   }
 `
 

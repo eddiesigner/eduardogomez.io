@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import styled from 'styled-components'
 import { Helmet } from 'react-helmet'
+import { mediaQueries } from '../utils/mediaQueries'
 import { MetaData } from '../components/common/meta'
 import {
   Layout,
@@ -14,6 +16,7 @@ import {
   PostTitle,
   PostImage,
   PostContent,
+  PostTagsList,
 } from '../components/post'
 
 /**
@@ -34,8 +37,8 @@ const Post = ({ data, location }) => {
       </Helmet>
       <Layout location={location}>
         <Wrapper smaller>
-          <article>
-            <PostHeader>
+          <ArticleContainer>
+            <PostHeader hasImage={!!post.feature_image}>
               <PostTitle>{post.title}</PostTitle>
               {post.custom_excerpt && (
                 <Subheading inPost>{post.custom_excerpt}</Subheading>
@@ -49,12 +52,21 @@ const Post = ({ data, location }) => {
               <PostImage featureImage={post.feature_image} />
             )}
             {post.html && <PostContent html={post.childHtmlRehype.html} />}
-          </article>
+          </ArticleContainer>
+          {post.tags.length > 1 && <PostTagsList tags={post.tags} />}
         </Wrapper>
       </Layout>
     </>
   )
 }
+
+const ArticleContainer = styled.article`
+  margin-bottom: 3.125rem;
+
+  @media ${mediaQueries.medium} {
+    margin-bottom: 4.6875rem;
+  }
+`
 
 Post.propTypes = {
   data: PropTypes.shape({
@@ -64,6 +76,7 @@ Post.propTypes = {
       html: PropTypes.string.isRequired,
       feature_image: PropTypes.string,
       primary_tag: PropTypes.object,
+      tags: PropTypes.array,
       published_at_pretty: PropTypes.string.isRequired,
       custom_excerpt: PropTypes.string,
       childHtmlRehype: PropTypes.shape({
