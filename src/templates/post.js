@@ -17,6 +17,7 @@ import {
   PostImage,
   PostContent,
   PostTagsList,
+  PostShare,
 } from '../components/post'
 
 /**
@@ -54,6 +55,7 @@ const Post = ({ data, location }) => {
             {post.html && <PostContent html={post.childHtmlRehype.html} />}
           </ArticleContainer>
           {post.tags.length > 1 && <PostTagsList tags={post.tags} />}
+          <PostShare url={location.href} title={post.title} />
         </Wrapper>
       </Layout>
     </>
