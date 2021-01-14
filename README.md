@@ -76,7 +76,7 @@ To deploy to your Netlify account, hit the button below.
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/eddiesigner/eduardogomez.io)
 
-Content API Keys must be set as [Netlify ENV variables](https://docs.netlify.com/configure-builds/environment-variables/) for production builds.
+The environment variables including your Content API Keys must be set as [Netlify ENV variables](https://docs.netlify.com/configure-builds/environment-variables/) for production builds.
 
 Once deployed, you can set up a [Ghost + Netlify Integration](https://ghost.org/integrations/netlify/) to use deploy hooks from Ghost to trigger Netlify rebuilds. That way, any time data changes in Ghost, your site will rebuild on Netlify.
 
