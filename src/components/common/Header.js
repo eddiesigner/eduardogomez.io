@@ -17,12 +17,14 @@ const Header = ({ canonicalLocation, location, navigation, logo, title }) => (
             <MainNavigation aria-label="Main navigation">
               <NavigationList>
                 {navigation.map((navItem, i) => {
-                  const canonicalPathname = new URL(
-                    `${canonicalLocation}${location.pathname}`
-                  ).pathname.slice(0, -1)
+                  const canonicalPathname = location.pathname
+                    ? location.pathname
+                    : new URL(`${canonicalLocation}${location.pathname}`)
+                      .pathname
                   const navItemPathname = new URL(navItem.url).pathname
-                  console.log(canonicalPathname, navItemPathname)
-                  const isCurrent = canonicalPathname === navItemPathname
+                  const isCurrent =
+                    canonicalPathname.replace(/\//g, ``) ===
+                    navItemPathname.replace(/\//g, ``)
 
                   return (
                     <NavItem key={i} current={isCurrent}>
