@@ -28,6 +28,7 @@ import {
  */
 const Post = ({ data, location }) => {
   const post = data.ghostPost
+  const canonicalUrl = `${data.site.siteMetadata.siteUrl}${location.pathname}`
 
   return (
     <>
@@ -55,7 +56,7 @@ const Post = ({ data, location }) => {
             {post.html && <PostContent html={post.childHtmlRehype.html} />}
           </ArticleContainer>
           {post.tags.length > 1 && <PostTagsList tags={post.tags} />}
-          <PostShare url={location.href} title={post.title} />
+          <PostShare url={canonicalUrl} title={post.title} />
         </Wrapper>
       </Layout>
     </>
@@ -72,6 +73,11 @@ const ArticleContainer = styled.article`
 
 Post.propTypes = {
   data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        siteUrl: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
     ghostPost: PropTypes.shape({
       codeinjection_styles: PropTypes.object,
       title: PropTypes.string.isRequired,
@@ -93,6 +99,11 @@ export default Post
 
 export const postQuery = graphql`
   query($slug: String!) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     ghostPost(slug: { eq: $slug }) {
       ...GhostPostFields
     }
