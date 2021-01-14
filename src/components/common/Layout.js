@@ -60,6 +60,7 @@ const GlobalStyle = createGlobalStyle`
  */
 const DefaultLayout = ({ data, children, location, isHome }) => {
   const site = data.allGhostSettings.edges[0].node
+  const canonicalLocation = data.site.siteMetadata.siteUrl
 
   return (
     <>
@@ -74,6 +75,7 @@ const DefaultLayout = ({ data, children, location, isHome }) => {
       <MainContainer>
         <Header
           location={location}
+          canonicalLocation={canonicalLocation}
           navigation={site.navigation}
           logo={site.logo}
           title={site.title}
@@ -114,6 +116,11 @@ DefaultLayout.propTypes = {
   }).isRequired,
   isHome: PropTypes.bool,
   data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        siteUrl: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
     allGhostSettings: PropTypes.object.isRequired,
   }).isRequired,
 }
@@ -122,6 +129,11 @@ const DefaultLayoutSettingsQuery = props => (
   <StaticQuery
     query={graphql`
       query GhostSettings {
+        site {
+          siteMetadata {
+            siteUrl
+          }
+        }
         allGhostSettings {
           edges {
             node {

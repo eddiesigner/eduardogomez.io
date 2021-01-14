@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Wrapper } from '.'
 import { mediaQueries } from '../../utils/mediaQueries'
 
-const Header = ({ location, navigation, logo, title }) => (
+const Header = ({ canonicalLocation, location, navigation, logo, title }) => (
   <Container>
     <Wrapper>
       <Content>
@@ -17,8 +17,12 @@ const Header = ({ location, navigation, logo, title }) => (
             <MainNavigation aria-label="Main navigation">
               <NavigationList>
                 {navigation.map((navItem, i) => {
-                  const isCurrent =
-                    location.pathname === new URL(navItem.url).pathname
+                  const canonicalPathname = new URL(
+                    `${canonicalLocation}${location.pathname}`
+                  ).pathname.slice(0, -1)
+                  const navItemPathname = new URL(navItem.url).pathname
+                  console.log(canonicalPathname, navItemPathname)
+                  const isCurrent = canonicalPathname === navItemPathname
 
                   return (
                     <NavItem key={i} current={isCurrent}>
@@ -204,6 +208,7 @@ const NavLink = styled.a`
 `
 
 Header.propTypes = {
+  canonicalLocation: PropTypes.string.isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }).isRequired,
