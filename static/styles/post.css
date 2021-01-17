@@ -380,15 +380,6 @@
   font-size: 1rem;
   line-height: 1.4;
   font-weight: 600;
-  display: -webkit-box;
-  max-width: 100%;
-  max-height: 60px;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 1.25rem;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
   margin-bottom: 0.9375rem;
 }
 
@@ -402,15 +393,7 @@
   color: var(--color-text);
   line-height: 1.6;
   font-size: 0.8125rem;
-  display: -webkit-box;
-  max-width: 100%;
-  max-height: 3.75rem;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin-bottom: 1.25rem;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
 
 @media only screen and (min-width: 48rem) {
@@ -433,7 +416,7 @@
     order: 2;
     flex-shrink: 0;
     width: 15.625rem;
-    height: 12.5rem;
+    height: auto;
     border-radius: 0 0.125rem 0.125rem 0;
   }
 }
