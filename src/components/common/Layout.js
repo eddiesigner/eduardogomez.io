@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 
     @media (prefers-color-scheme: dark) {
       --color-foreground: #ffffff;
-      --color-background: #1f1f20;
+      --color-background: #141415;
       --color-secondary: #8c94a2;
       --color-text: #d6d6d6;
       --color-accent: #2188ff;
@@ -39,8 +39,8 @@ const GlobalStyle = createGlobalStyle`
       --color-focus: #90cdf4;
       --color-second-gradient: #804eda;
       --color-button-shadow: rgba(0, 0, 0, 0.6);
-      --color-nav-gradient-left: rgba(31, 31, 31, 1);
-      --color-nav-gradient-right: rgba(31, 31, 31, 0);
+      --color-nav-gradient-left: rgba(20, 20, 21, 1);
+      --color-nav-gradient-right: rgba(20, 20, 21, 0);
       --opacity-dots: 1;
     }
   }
