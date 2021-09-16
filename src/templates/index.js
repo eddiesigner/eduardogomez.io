@@ -34,8 +34,8 @@ const Index = ({ data, location }) => {
           <MastHead inHome>
             <Title>
               <BigText gradient>{settings.title}.</BigText>
-              <BigText>Frontend Engineer.</BigText>
               <BigText>UI/UX Designer.</BigText>
+              <BigText>Frontend Engineer.</BigText>
             </Title>
             <Subheading bigger>{settings.description}</Subheading>
           </MastHead>
