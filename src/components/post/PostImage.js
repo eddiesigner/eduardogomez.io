@@ -16,13 +16,27 @@ const PostImage = ({ featureImage }) => {
       `/content/images/`,
       `/content/images/size/w1000/`
     )
+    srcSet[2] = featureImage.replace(
+      `/content/images/`,
+      `/content/images/size/w2000/`
+    )
   }
 
   return (
     <Image
-      sizes="(max-width: 48rem) 37.5rem, 62.5rem"
-      srcset={srcSet.length > 0 ? `${srcSet[0]} 600w, ${srcSet[1]} 1000w` : ``}
-      src={srcSet.length > 0 ? srcSet[0] : featureImage}
+      sizes="
+        (max-width: 48rem) 37.5rem,
+        (max-width: 75rem) 62.5rem,
+        125rem
+      "
+      srcset={
+        srcSet.length > 0
+          ? `${srcSet[0]} 600w,
+          ${srcSet[1]} 1000w,
+          ${srcSet[2]} 2000w`
+          : ``
+      }
+      src={srcSet.length > 0 ? srcSet[1] : featureImage}
       alt=""
       width="600"
       height="420"
@@ -31,13 +45,26 @@ const PostImage = ({ featureImage }) => {
 }
 
 const Image = styled(LazyImage)`
-  width: calc(100% + 2.5rem);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: 2.5rem;
   height: auto;
-  margin: 0 -1.25rem 2.5rem;
 
   @media ${mediaQueries.medium} {
-    width: 100%;
-    margin: 0 0 3.125rem;
+    width: 90vw;
+    margin-left: -45vw;
+    margin-right: -45vw;
+    margin-bottom: 3.125rem;
+  }
+
+  @media ${mediaQueries.largest} {
+    width: 80vw;
+    margin-left: -40vw;
+    margin-right: -40vw;
   }
 `
 
