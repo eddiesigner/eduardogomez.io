@@ -4,7 +4,7 @@ module.exports = {
   postsPerPage: 10, // Number of posts shown on paginated pages (changes this requires sometimes to delete the cache)
 
   siteTitleMeta: `Eduardo Gómez`, // This allows an alternative site title for meta data for pages.
-  siteDescriptionMeta: `Eduardo Gómez. UI/UX Designer. Frontend Engineer.`, // This allows an alternative site description for meta data for pages.
+  siteDescriptionMeta: `Eduardo Gómez. Frontend Engineer. UI/UX Designer.`, // This allows an alternative site description for meta data for pages.
 
   shareImageWidth: 1200, // Change to the width of your default share image
   shareImageHeight: 636, // Change to the height of your default share image
